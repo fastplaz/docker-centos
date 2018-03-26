@@ -43,6 +43,7 @@ EXPOSE 443
 
 # Prepare FastPlaz
 RUN /app/fastplaz-init-runtime.sh
+RUN ln -s /app/centos-run.sh /app/run.sh
 ADD ./project-examples/echo /projects/echo/
 RUN chmod -R 777 /projects/echo/public_html/ztemp
 
