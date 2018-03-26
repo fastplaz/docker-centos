@@ -13,6 +13,8 @@ MAINTAINER Luri Darmawan <luri@***.com>
 RUN mkdir -p /projects/vendors/
 WORKDIR /projects
 ADD ./app/ /app
+RUN rm -rf /app/fpc-3.0.2.x86_64-linux.tar
+RUN rm -rf /app/fpc-install.sh
 
 # Environment
 ENV NAME FastPlaz
@@ -20,10 +22,9 @@ ENV NAME FastPlaz
 
 
 # Install any needed packages specified
-RUN yum install -y git nano vim
 RUN yum install -y httpd
-RUN yum install -y libtool binutils
-#RUN yum install -y '@Development Tools'
+#RUN yum install -y git 
+#RUN yum install nano vim
 
 # Apache setup
 ADD config/apache/fastplaz.conf /etc/httpd/conf.d/
@@ -41,7 +42,7 @@ EXPOSE 443
 #FROM base AS dependencies
 
 # Prepare FastPlaz
-RUN /app/fastplaz-init.sh
+RUN /app/fastplaz-init-runtime.sh
 ADD ./project-examples/echo /projects/echo/
 RUN chmod -R 777 /projects/echo/public_html/ztemp
 
