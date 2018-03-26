@@ -1,10 +1,25 @@
 #!/bin/bash
 echo Docker - FastPlaz Image Generator
-cd files
 
-if [ "$1" ==  "runtime" ]
+OS=$1
+RELEASE=$2
+if [ "$1" ==  "" ]
 then
-	docker build -f Dockerfile-runtime -t fastplaz/centos-runtime .
-else
-	docker build -t fastplaz/centos .
+	OS="ubuntu"
 fi
+if [ "$2" ==  "runtime" ]
+then
+	if [ "$OS" ==  "ubuntu" ]
+	then
+		RELEASE=""
+	else
+		RELEASE="-runtime"
+	fi
+else
+	RELEASE=""
+fi
+echo Build: $OS $RELEASE
+
+
+cd files
+docker build -f Dockerfile-$OS$RELEASE -t fastplaz/$OS$RELEASE .

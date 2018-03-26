@@ -27,7 +27,6 @@ RUN yum install -y libtool binutils
 
 # Apache setup
 ADD config/apache/fastplaz.conf /etc/httpd/conf.d/
-RUN ln -s /projects/echo/public_html /var/www/html/echo
 RUN echo "FastPlaz for Docker" > /var/www/html/index.html
 
 
@@ -42,7 +41,9 @@ EXPOSE 443
 
 # Prepare FastPlaz
 RUN /app/fastplaz-init.sh
+RUN ln -s /app/centos-run.sh /app/run.sh
 ADD ./project-examples/echo /projects/echo/
+RUN ln -s /projects/echo/public_html /var/www/html/echo
 RUN chmod -R 777 /projects/echo/public_html/ztemp
 
 # run apache

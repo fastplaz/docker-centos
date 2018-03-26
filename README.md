@@ -43,7 +43,7 @@ $docker images
 From Shell, run this script
 
 ```
-$./container-run.sh
+$./container-run.sh [runtime]
 ```
 
 
