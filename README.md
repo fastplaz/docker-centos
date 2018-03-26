@@ -16,7 +16,7 @@ The official FastPlaz site can be found [fastplaz.com](http://www.fastplaz.com).
 
 Docker is a tool that is designed to benefit both developers and system administrators, making it a part of many DevOps (developers + operations) toolchains.
 
-This docker template use OS Centos 7.4
+This docker template use OS Centos 7.4 and Ubuntu 16.04 (default)
 
 ## How to use
 ### Generate Image
@@ -25,12 +25,17 @@ Make sure Docker is running and have good internet access,
 then run this script
 
 ```
-$./build.sh [runtime]
+$./build.sh [ubuntu|centos] [runtime]
+```
+example:
+
+```
+$./build.sh
 ```
 
-This script will produce image: **fastplaz/centos**.
+This script will produce image: **fastplaz/ubuntu**.
 
-You can see from this command
+You can see the image result from this command
 
 ```
 $docker images
@@ -43,9 +48,14 @@ $docker images
 From Shell, run this script
 
 ```
-$./container-run.sh [runtime]
+$./container-run.sh [ubuntu|centos] [runtime]
 ```
 
+if you want to running di detacth mode
+
+```
+docker run -d -it -p 8080:80 fastplaz/ubuntu
+```
 
 
 ### Enter Container Bash Shell
@@ -53,7 +63,7 @@ $./container-run.sh [runtime]
 From Shell, run this script
 
 ```
-$./bash.sh [runtime]
+$./bash.sh [ubuntu|centos] [runtime]
 ```
 
 or with manual command:
@@ -61,6 +71,7 @@ or with manual command:
 ```
 $docker run -it -p 8080:80 fastplaz/centos bash
 ```
+
 
 #### Enter to existing active container
 
@@ -73,8 +84,11 @@ $docker ps
 then execute this command:
 
 ```
-$docker exec -it -p 8080:80 [container_id] bash
+$docker exec -it [container_id] bash
 ```
+
+See this illustration
+![Example 01](files/img/ex01.png)
 
 
 
