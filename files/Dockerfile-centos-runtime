@@ -13,7 +13,7 @@ MAINTAINER Luri Darmawan <luri@***.com>
 RUN mkdir -p /projects/vendors/
 WORKDIR /projects
 ADD ./app/ /app
-RUN rm -rf /app/fpc-3.0.2.x86_64-linux.tar
+RUN rm -rf /app/fpc-3.0.4.x86_64-linux.tar
 RUN rm -rf /app/fpc-install.sh
 
 # Environment
@@ -49,4 +49,3 @@ RUN chmod -R 777 /projects/echo/public_html/ztemp
 
 # run apache
 CMD ["/app/run.sh"]
-

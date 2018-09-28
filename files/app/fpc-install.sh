@@ -8,8 +8,8 @@
 #
 
 # Release Version will be replaced by makepack
-VERSION=3.0.2
-FULLVERSION=3.0.2
+VERSION=3.0.4
+FULLVERSION=3.0.4
 
 # some useful functions
 # ask displays 1st parameter, and ask new value for variable, whose name is
