@@ -26,7 +26,7 @@ ENV DEBIAN_FRONTEND noninteractive
 #RUN echo "deb http://buaya.klas.or.id/ubuntu/ xenial-updates main restricted universe multiverse" >> /etc/apt/sources.list
 
 RUN apt-get update
-RUN apt-get install -y apache2 git curl libtool
+RUN apt-get install -y apache2 git curl libtool zip nano
 #RUN apt-get install -y apache2 git curl binutils nano build-essential
 RUN apt-get install --fix-missing
 
