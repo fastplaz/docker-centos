@@ -16,6 +16,7 @@ begin
 
   Application.OnGetModule := @FastPlasAppandler.OnGetModule;
   Application.PreferModuleName := True;
+  Application.LegacyRouting := True;
 
   Application.Initialize;
   Application.Run;

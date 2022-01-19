@@ -1,25 +1,13 @@
 #!/bin/bash
-echo ============================
-echo FastPlaz Initialize
+#20220119.1706
+echo ===================================
+echo FastPlaz Initialization
 
-cd /app
+export TERM=xterm
 
-#3.0.4
-tar -ixf fpc-3.0.4.x86_64-linux.tar > /dev/null
-cp fpc-install.sh fpc-3.0.4.x86_64-linux
-cd fpc-3.0.4.x86_64-linux
-
-#3.0.4
-#tar -xf fpc-3.0.4.x86_64-linux.tar
-#cp fpc-install.sh fpc-3.0.4.x86_64-linux/
-#cd fpc-3.0.4.x86_64-linux
-
-./fpc-install.sh
-cd /app
-rm -rf fpc-3.0.4.x86_64-linux
-rm -rf fpc-3.0.4.x86_64-linux.tar
-
+mkdir -p /projects/vendors
 cd /projects/vendors/
-git clone -b development https://github.com/fastplaz/fastplaz.git
-echo -- init done
 
+git clone -b development https://github.com/fastplaz/fastplaz.git
+echo "cd /projects/vendors/fastplaz && git pull origin development" > fastplaz/update.sh && chmod 755 fastplaz/update.sh
+echo -- init done

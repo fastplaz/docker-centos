@@ -21,5 +21,5 @@ fi
 echo Build: $OS $RELEASE
 
 
-cd files
-docker build -f Dockerfile-$OS$RELEASE -t fastplaz/$OS$RELEASE .
+cd files/
+docker build . -f Dockerfile-$OS$RELEASE -t fastplaz/$OS$RELEASE
